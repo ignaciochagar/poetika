@@ -1,4 +1,4 @@
-import artistController from "./artistController.js";
+import roleController from "./roleController.js";
 
 async function getAll(req,res){
     const {error,data} = await roleController.getAll();
@@ -29,10 +29,9 @@ async function update(req,res){
 
 async function remove(req,res){
     const id = parseInt(req.params.id);
-    const {error,data} = await artistController.remove(id);
+    const {error,data} = await roleController.remove(id);
     res.json({error,data});
 }
-
 
 
 export {
