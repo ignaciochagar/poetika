@@ -15,7 +15,12 @@ app.set("view engine","pug");
 app.use(express.json()); // permite leer el body de llamadas POST y PUT tipo JSON
 app.use(express.urlencoded({extended:true})); // permite leer el body de llamadas POST y PUT tipo URL Encoded
 
+
+
 app.use("/",router);
+
+
+
 
 app.listen(process.env.APP_PORT,()=>{
     console.log("Servidor en marcha en el puerto "+process.env.APP_PORT);
