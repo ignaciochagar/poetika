@@ -1,11 +1,12 @@
 [
 	{
 		"role_id" : 1,
-		"role" : "Administrator",
+
+		"role" : "Administrator"
 	},
 	{
 		"role_id" : 2,
-		"role" : "User",
-	},
+		"role" : "User"
+	}
 
 ]

@@ -1,3 +1,4 @@
+
 import roleController from "./roleController.js";
 
 async function getAll(req,res){
