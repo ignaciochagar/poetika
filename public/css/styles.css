@@ -1,0 +1,50 @@
+body {
+    background-color: aquamarine;
+}
+
+#listado {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+}
+
+#listado > a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+}
+
+#listado > a:hover {
+    color: brown;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+button {
+    margin: 0 10px;
+    font-size: 1.1rem;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: center;
+    border-bottom: solid 2px black;
+    padding: 25px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar > div > a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 600;
+}
+
+h1 {
+    margin-left: 25px;
+}
