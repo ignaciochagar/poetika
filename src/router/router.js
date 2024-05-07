@@ -15,7 +15,7 @@ const router = Router();
 
 
 router.get("/", (req,res) => {
-    res.render('./index.pug', {lista: findAll()});
+    res.render('./index.pug');
 });
 
 

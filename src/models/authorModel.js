@@ -4,9 +4,9 @@ async function findAll() {
     console.log("connection",connection)
     const queryString="SELECT * FROM author";
     const [rows,fields] = await connection.query(queryString);
-    console.log("find all");
-    console.log("rows",rows);
-    console.log("fields",fields);
+    //console.log("find all");
+    //console.log("rows",rows);
+    //console.log("fields",fields);
     return rows;
 }
 
