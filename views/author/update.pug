@@ -1,0 +1,14 @@
+extends ../layout
+
+block content 
+    if error 
+        p(class="error")= error
+    if artist
+        form(action="/author/"+author.author_id, method="post") 
+            label(for="name") Nombre 
+            input(id="name" type="text" name="name" value=author.name) 
+            label(for="is_alive") Vive?
+            label(for="born_year")
+            input#birth_date(type="date", name="born_year" value=author.born_year)  
+            button(type="submit") Guardar
+
