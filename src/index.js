@@ -26,11 +26,7 @@ app.get("/",async(req,res)=>{
 })
 
 
-/* app.use("/", router);
-app.use("/session", router);
-app.use("/find", router);
-app.use("/new_user", router);
- */
+
 
 
 app.listen(process.env.APP_PORT,()=>{

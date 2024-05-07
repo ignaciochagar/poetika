@@ -11,7 +11,6 @@ router.post("/",authorViewController.create);
 router.get("/:id",authorViewController.getById);
 router.get("/:id/update",authorViewController.updateForm);
 router.post("/:id",authorViewController.update);
-//router.delete("/:id",authorViewController.remove);
 router.post("/:id/remove",authorViewController.remove);
 
 
