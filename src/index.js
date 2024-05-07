@@ -1,9 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-
+import connection from "./config/mysql.js";
 import router from "./router/router.js";
-
-//import router from "./routes/router.js";
+import AuthorModel from "./models/authorModel.js";
 
 dotenv.config();
 
@@ -18,12 +17,20 @@ app.use(express.json()); // permite leer el body de llamadas POST y PUT tipo JSO
 app.use(express.urlencoded({extended:true})); // permite leer el body de llamadas POST y PUT tipo URL Encoded
 
 
+app.use("/",router);
 
-app.use("/", router);
+app.get("/",async(req,res)=>{
+    const rows = await AuthorModel.findAll();
+    console.log("rows",rows);
+    res.json(rows);
+})
+
+
+/* app.use("/", router);
 app.use("/session", router);
 app.use("/find", router);
 app.use("/new_user", router);
-
+ */
 
 
 app.listen(process.env.APP_PORT,()=>{
