@@ -1,7 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-
+import connection from "./config/mysql.js";
 import router from "./routes/router.js";
+import ArtistModel from "./models/poemModel.js";
+
+
 
 dotenv.config();
 
@@ -17,6 +20,12 @@ app.use(express.urlencoded({extended:true})); // permite leer el body de llamada
 
 app.use("/",router);
 
+app.get("/",async(req,res)=>{
+    const rows = await poemModel.findAll();
+    console.log("rows",rows);
+    res.json(rows);
+})
 app.listen(3000,()=>{
     console.log("Servidor en marcha en el puerto "+process.env.APP_PORT);
 })
+
