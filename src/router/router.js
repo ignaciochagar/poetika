@@ -23,6 +23,11 @@ router.get("/find", (req,res) => {
     res.render('./find.pug');
 });
 
+router.get("/new_user", (req,res) => {
+    res.render('./newUser.pug');
+});
+
+
 
 
 export default router;

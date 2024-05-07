@@ -11,8 +11,26 @@ body {
 #cuerpo {
     border: solid 2px blue;
     margin-top: 25px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: column;
+}
+
+#alfabeto {
+    border: solid 2px red;
+    display: flex;
+    justify-content: space-around;
+}
+
+#result {
+    border: solid 2px black;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#alfabeto > a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
 #footer {

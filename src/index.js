@@ -22,6 +22,7 @@ app.use(express.urlencoded({extended:true})); // permite leer el body de llamada
 app.use("/", router);
 app.use("/session", router);
 app.use("/find", router);
+app.use("/new_user", router);
 
 
 
