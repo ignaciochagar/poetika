@@ -5,6 +5,7 @@ import { Router } from "express";
 
 import { findAll } from "../models/authorModel.js";
 
+
 dotenv.config();
 
 const app = express();
@@ -14,7 +15,7 @@ const router = Router();
 
 
 router.get("/", (req,res) => {
-    res.render('./index.pug', { buscarAll: findAll() });
+    res.render('./index.pug', {lista: findAll()});
 });
 
 
