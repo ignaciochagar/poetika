@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1 poem of poems
+    if error 
+        p(class="error")= error
+    if data
+        ul
+            each poem in data 
+                li
+                    a(href="/poem/"+poem.poem_id)= poem.title
+                    a(href=`/poem/${poem.poem_id}/update`) 
+                        button Editar
+                    form(action=`/poem/${poem.poem_id}/remove`, method="post") 
+                        button(type="submit") Borrar
+    a(href="/poem/new")
+        button Nuevo

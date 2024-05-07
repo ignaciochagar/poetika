@@ -1,0 +1,15 @@
+extends ../layout
+
+block content 
+    if error 
+        p(class="error")= error
+    if artist
+        form(action="/poem/"+poem.poem_id, method="post") 
+            label(for="title") Title 
+            input(id="title" type="text" name="title" value=poem.title) 
+            label(for="author") Author
+            input#author(type="checkbox", name="author" checked=poem.author ? true:false)
+            label(for="author")
+            input#year_release(type="date", name="year_release" value=poem.year_release)  
+            button(type="submit") Guardar
+

@@ -1,0 +1,12 @@
+extends ../layout
+
+block content 
+    form(action="/poem", method="post") 
+        label(for="title") Title 
+        input(id="title" type="text" title="title") 
+        label(for="author") Author
+        input#year_release(type="text", title="author")
+        label(for="year_release")
+        input#author(type="date", title="year_release")  
+        button(type="submit") Crear
+

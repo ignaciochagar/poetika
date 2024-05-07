@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import artistApiRouter from "./artistApiRouter.js";
+import poemApiRouter from "./poemApiRouter.js";
 
 const router = Router();
 
 
-router.use("/artist",artistApiRouter);
+router.use("/poem",poemApiRouter);
 
 
 export default router;

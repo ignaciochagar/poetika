@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    if error 
+        p(class="error")= error
+    if poem 
+        h2= poem.title 
+        p Author: #{poem.author==1 ? 'si': 'no'} 
+        if poem.year_release
+            p Year_release: #{poem.year_release}
+    a(href="/poem")
+        button Volver

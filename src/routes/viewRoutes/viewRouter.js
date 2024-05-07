@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import artistViewRouter from "./artistViewRouter.js";
+import poemViewRouter from "./poemViewRouter.js";
 
 const router = Router();
 
 
-router.use("/artist",artistViewRouter);
+router.use("/poem",poemViewRouter);
 
 export default router;
