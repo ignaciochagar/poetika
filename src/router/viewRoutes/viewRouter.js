@@ -5,6 +5,6 @@ import authorViewRouter from "./authorViewRouter.js";
 const router = Router();
 
 
-router.use("/auhor",authorViewRouter);
+router.use("/author",authorViewRouter);
 
 export default router;
