@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connection from "./config/mysql.js";
 import router from "./routes/router.js";
-import ArtistModel from "./models/poemModel.js";
+import PoemModel from "./models/poemModel.js";
 
 
 
