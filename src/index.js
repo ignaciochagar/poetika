@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import router from "./router/router.js";
+
 //import router from "./routes/router.js";
 
 dotenv.config();
@@ -17,9 +19,9 @@ app.use(express.urlencoded({extended:true})); // permite leer el body de llamada
 
 
 
-app.use("/", (req,res) => {
-    res.send('estoy probando');
-});
+app.use("/", router);
+app.use("/session", router);
+app.use("/find", router);
 
 
 

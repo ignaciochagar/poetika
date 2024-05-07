@@ -1,0 +1,28 @@
+import express from "express";
+import dotenv from "dotenv";
+
+import { Router } from "express";
+
+dotenv.config();
+
+const app = express();
+const router = Router();
+
+
+
+
+router.get("/", (req,res) => {
+    res.render('./index.pug');
+});
+
+router.get("/session", (req,res) => {
+    res.render('./session.pug');
+});
+
+router.get("/find", (req,res) => {
+    res.render('./find.pug');
+});
+
+
+
+export default router;
