@@ -8,10 +8,10 @@ block content
         ul
             each author in data 
                 li
-                    a(href="/author/"+author.author)= author.name
-                    a(href=`/author/${author.author}/update`) 
+                    a(href="/author/"+author.author_id)= author.name
+                    a(href=`/author/${author.author_id}/update`) 
                         button Editar
-                    form(action=`/author/${author.author}/remove`, method="post") 
+                    form(action=`/author/${author.author_id}/remove`, method="post") 
                         button(type="submit") Borrar
     a(href="/author/new")
         button Nuevo

@@ -4,7 +4,7 @@ block content
     if error 
         p(class="error")= error
     if author
-        form(action="/author/"+author.author, method="post") 
+        form(action="/author/"+author.author_id, method="post") 
             label(for="name") Nombre 
             input(id="name" type="text" name="name" value=author.name) 
             label(for="born")

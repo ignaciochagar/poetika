@@ -26,7 +26,7 @@ async function getById(id) {
 
 }
 
-async function create(authortData) {
+async function create(authorData) {
     try {
         const newAuthor = await authorModel.create(authorData);
         console.log("new author",newAuthor);
