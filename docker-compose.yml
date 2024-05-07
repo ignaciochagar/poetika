@@ -25,7 +25,7 @@ services:
       - db
     volumes:
       - ./:/app
-      - node_modules_musica:/app/node_modules
+      - node_modules_poetika:/app/node_modules
       
 volumes:
-  node_modules_musica:
+  node_modules_poetika:
