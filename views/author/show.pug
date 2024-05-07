@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    if error 
+        p(class="error")= error
+    if author 
+        h2= author.name 
+        if author.born_year
+            p Fecha de nacimiento: #{autor.born_year}
+    a(href="/author")
+        button Volver

@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1 Lista de Autores
+    if error
+        p(class="error")= error
+    if data
+        ul
+            each author in data
+                li
+                    a(href="/author/"+author.author_id)= author.name
+                    a(href=`/author/${author.author_id}/update`)
+                        button Editar
+                    form(action=`/author/${author.author_id}/remove`, method="post")
+                        button(type="submit") Borrar
+    a(href="/author/new")
+        button Nuevo

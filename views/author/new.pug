@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    form(action="/author", method="post")
+        label(for="name") Nombre
+        input(id="name", type="text", name="name")
+        label(for="born_year") Año de Nacimiento
+        input#born_year(type="date", name="born_year")
+        button(type="submit") Crear
