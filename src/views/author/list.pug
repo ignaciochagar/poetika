@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 lista de autores
+    h1 Lista de autores
     if error 
         p(class="error")= error
     if data
@@ -9,7 +9,7 @@ block content
             each author in data 
                     div(id="listado")
                         a(href="/author/"+author.author_id)= `${author.name} (${author.born})`
-                        a(href=`/author/${author.author_id}/update`) 
+                        a(href=`/author/${author.author_id}/update`, method="post") 
                             button Editar
 
                         form(action=`/author/${author.author_id}/remove`, method="post") 

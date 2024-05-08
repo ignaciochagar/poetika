@@ -1,28 +1,37 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-//import poemModel from "./poemModel.js";
 
-const authorModel = sequelize.define("author",
+
+const poemModel = sequelize.define("poem",
     {
-        author_id:{
+        poem_id:{
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull:false,
             primaryKey:true,
             autoIncrement:true
         },
-        name: {
-            type:DataTypes.STRING(45),
+        title: {
+            type: DataTypes.STRING(45),
             allowNull:false
         },
-        born:{
-            type:DataTypes.INTEGER, 
+        author:{
+            type: DataTypes.STRING(45), 
+            allowNull:false
+        }, 
+        year_release:{
+            type: DataTypes.INTEGER
+        }, 
+        author_id:{
+            type: DataTypes.INTEGER,
+            primaryKey:true, 
             allowNull:false
         }
     }
 )
 
-/* authorModel.belongsToMany(poemModel,
+
+/* authorModel.belongsToMany(bandModel,
     {
         through:"band_has_artist",
         as:"bandas",
@@ -37,4 +46,4 @@ bandModel.belongsToMany(artistModel,
     }
 ); */
 
-export default authorModel;
+export default poemModel;
