@@ -11,7 +11,7 @@ async function findAll() {
 }
 
 async function findByPk(pk){
-    const queryString="SELECT * FROM artist WHERE artist_id=?";
+    const queryString="SELECT * FROM poem WHERE poem_id=?";
     const [rows,fields] = await connection.query(queryString,[pk]);
     console.log("find by pk");
     console.log("rows",rows);
