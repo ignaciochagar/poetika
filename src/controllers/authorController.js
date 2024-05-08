@@ -13,6 +13,9 @@ async function getAllAuthors(){
 }
 
 async function getAuthorById(id){
+    const authors = await authorModel.findAll();
+    return { data: authors };
+
     const author = authors.find(author => author.author_id === id);
     if(!author){
         return { error: "El autor no existe" };
@@ -21,6 +24,8 @@ async function getAuthorById(id){
 }
 
 async function createAuthor(authorData){
+    const authors = await authorModel.findAll();
+        return { data: authors };
     const { Name, Born } = authorData;
     // Obtener el máximo ID_Author de los autores
     if(!Name){
@@ -38,6 +43,8 @@ async function createAuthor(authorData){
 }
 
 async function updateAuthor(id, authorData){
+    const authors = await authorModel.findAll();
+        return { data: authors };
     const { Name, Born } = authorData;
     const author = authors.find(author => author.author_id === id);
     if(!author){
@@ -53,6 +60,8 @@ async function updateAuthor(id, authorData){
 }
 
 async function removeAuthor(id){
+    const authors = await authorModel.findAll();
+        return { data: authors };
     const authorIndex = authors.findIndex(author => author.author_id === id);
     if(authorIndex === -1){
         return { error: "No se pueden borrar autores que no existen" };
