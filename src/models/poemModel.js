@@ -24,7 +24,7 @@ const poemModel = sequelize.define("poem",
         }, 
         author_id:{
             type: DataTypes.INTEGER,
-            primaryKey:true, 
+            primaryKey:false, 
             allowNull:false
         }
     }

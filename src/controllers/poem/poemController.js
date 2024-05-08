@@ -55,6 +55,9 @@ async function update(id, poemData) {
         if (year_release) {
             poem.year_release = year_release;
         }
+        if (author_id) {
+            poem.author_id = author_id;
+        }
         const newPoem = await poemModel.update(id,poem);
         return {data:newPoem};
     } catch (error) {
