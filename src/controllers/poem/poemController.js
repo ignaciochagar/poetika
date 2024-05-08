@@ -26,7 +26,7 @@ async function getById(id) {
     }
 }
 
-async function create(poemtData) {
+async function create(poemData) {
     try {
         const newPoem = await poemModel.create(poemData);
         console.log("new poem", newPoem);
