@@ -13,15 +13,15 @@ async function getById(req, res){
 }
 
 async function create(req, res){
-    const {name, born_year} = req.query;
-    const {error, data} = await authorController.createAuthor({Name: name, Born_Year: born_year});
+    const {name, born} = req.body;
+    const {error, data} = await authorController.createAuthor({Name: name, Born: born});
     res.json({error, data});
 }
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const {name, born_year} = req.query;
-    const {error, data} = await authorController.updateAuthor(id, {Name: name, Born_Year: born_year});
+    const {name, born} = req.body;
+    const {error, data} = await authorController.updateAuthor(id, {Name: name, Born: born});
     res.json({error, data});
 }
 

@@ -5,7 +5,7 @@ block content
         p(class="error")= error
     if author 
         h2= author.name 
-        if author.born_year
-            p Fecha de nacimiento: #{autor.born_year}
+        if author.born
+            p Fecha de nacimiento: #{autor.born}
     a(href="/author")
         button Volver

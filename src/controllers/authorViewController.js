@@ -17,8 +17,8 @@ async function createForm(req, res){
 }
 
 async function create(req, res){
-    const {name, Born_Year} = req.body;
-    const {error, data} = await authorController.createAuthor({Name: name, Born_Year: born_year});
+    const {name, born} = req.body;
+    const {error, data} = await authorController.createAuthor({Name: name, Born: born});
     res.redirect("/author");
 }
 
@@ -30,8 +30,8 @@ async function updateForm(req, res){
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const {name, Born_Year} = req.body;
-    const {error, data} = await authorController.updateAuthor(id, {Name: name, Born_Year: born_year});
+    const {name, born} = req.body;
+    const {error, data} = await authorController.updateAuthor(id, {Name: name, Born: born});
     res.redirect("/author");
 }
 
