@@ -68,7 +68,7 @@ async function remove(id) {
         return { data: result };
     } catch (error) {
         console.error(error);
-    }
+    } 
 }
 
 export {
