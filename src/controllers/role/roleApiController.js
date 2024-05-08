@@ -13,17 +13,17 @@ async function getById(req,res){
 }
 
 async function create(req,res){
-    // const {name,is_alive,birth_date} = req.body;
-    const {name,is_alive,birth_date} = req.query;
-    const {error,data} = await roleController.create({name,is_alive,birth_date});
+    
+    const {title,author,year_release} = req.query;
+    const {error,data} = await roleController.create({title,author,year_release});
     res.json({error,data});
 }
 
 async function update(req,res){
     const id = parseInt(req.params.id);
-    // const {name,is_alive,birth_date} = req.body;
-    const {name,is_alive,birth_date} = req.query;
-    const {error,data} = await roleController.update(id,{name,is_alive,birth_date});
+    // const {title,author,year_release} = req.body;
+    const {title,author,year_release} = req.query;
+    const {error,data} = await roleController.update(id,{title,author,year_release});
     res.json({error,data});
 }
 
