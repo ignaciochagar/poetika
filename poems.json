@@ -1,0 +1,20 @@
+[
+	{
+		"poem_id" : 1,
+		"title" : "Lady Gaga",
+		"author" : null,
+		"year_release" : 1
+	},
+	{
+		"poem_id" : 2,
+		"title" : "Evaristo",
+		"author" : null,
+		"year_release" : 1
+	},
+	{
+		"poem_id" : 3,
+		"title" : "Nacho",
+		"author" : null,
+		"year_release" : 0
+	}
+]
