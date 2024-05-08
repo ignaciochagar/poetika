@@ -41,8 +41,8 @@ async function create(poemData) {
 
 async function update(id, poemData) {
     try {
-        const { title, author, year_release } = poemData;
-        const poem  = await poemodel.findByPk(id);
+        const { title, author, year_release, author_id} = poemData;
+        const poem  = await poemModel.findByPk(id);
         if (!poem) {
             return { error: "No se puede modificar un autor que no existe, txoripan!" };
         }

@@ -4,12 +4,18 @@ block content
     if error 
         p(class="error")= error
     if poem
-        form(action="/poem/"+poem.poem, method="post") 
+        form(action="/poem/"+poem.poem_id, method="post") 
+
             label(for="title") Titulo 
-            input(id="titulo" type="text" name="titulo" value=poem.titulo) 
+            input(id="title" type="text" name="titulo" value=poem.title) 
+
             label(for="author")
             input#author(type="text", name="author" value=poem.author)  
+
             label(for="year_release")
             input#year_release(type="text", name="year_release" value=poem.year_release)  
-            button(type="submit") Guardar
 
+            label(for="author_id")
+            input#author_id(type="text", name="author_id" value=poem.author_id)  
+            
+            button(type="submit") Guardar

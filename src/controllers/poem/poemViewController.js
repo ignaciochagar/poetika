@@ -24,8 +24,8 @@ async function create(req,res){
 
 async function updateForm(req,res){
     const id = parseInt(req.params.id);
-    const {error,data:author}= await poemController.getById(id);
-    res.render("poem/update",{error,author});
+    const {error,data:poem}= await poemController.getById(id);
+    res.render("poem/update",{error,poem});
 }
 
 async function update(req,res){

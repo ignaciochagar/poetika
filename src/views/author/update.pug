@@ -5,9 +5,12 @@ block content
         p(class="error")= error
     if author
         form(action="/author/"+author.author_id, method="post") 
+
             label(for="name") Nombre 
             input(id="name" type="text" name="name" value=author.name) 
+
             label(for="born")
             input#born(type="text", name="born" value=author.born)  
+            
             button(type="submit") Guardar
 

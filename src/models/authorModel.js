@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-//import poemModel from "./poemModel.js";
+import poemModel from "./poemModel.js";
 
 const authorModel = sequelize.define("author",
     {
@@ -22,18 +22,19 @@ const authorModel = sequelize.define("author",
     }
 )
 
-/* authorModel.belongsToMany(poemModel,
+authorModel.hasMany(poemModel,
     {
-        through:"band_has_artist",
-        as:"bandas",
-        foreignKey:"band_id"
+        //through:"band_has_artist",
+        as:"poem",
+        foreignKey:"poem_id"
     }
 );
-bandModel.belongsToMany(artistModel,
+
+/* poemModel.belongsTo(authorModel,
     {
-        through:"band_has_artist",
-        as:"artistas",
-        foreignKey:"artist_id"
+        //through:"band_has_artist",
+        as:"author",
+        foreignKey:"author_id"
     }
 ); */
 
