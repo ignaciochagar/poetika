@@ -1,0 +1,46 @@
+body {
+    background-color: blanchedalmond;
+}
+
+#navbar {
+    border: solid 2px red;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#cuerpo {
+    border: solid 2px blue;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#alfabeto {
+    border: solid 2px red;
+    display: flex;
+    justify-content: space-around;
+}
+
+#result {
+    border: solid 2px black;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#alfabeto > a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#footer {
+    border:solid 2px greenyellow;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    padding: 10px 0;
+}
