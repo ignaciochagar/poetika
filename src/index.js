@@ -1,12 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 
-import router from "./routes/router.js";
-
-import router from "./router/router.js";
-
-//import router from "./routes/router.js";
-
 import connection from "./config/mysql.js";
 import router from "./router/router.js";
 import AuthorModel from "./models/authorModel.js";
