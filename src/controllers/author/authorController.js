@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import authorModel from "../../models/authorModel.js";
 
 async function getAll() {
@@ -52,7 +53,14 @@ async function update(id, authorData) {
         if (name) {
             author.name = name;
         }
-        const newAuthor = await authorModel.update(id,author);
+        const newAuthor = await authorModel.update(authorData,
+            {
+                where: 
+                {
+                    author_id:id
+                }
+            }
+        );
         return {data:newAuthor};
     } catch (error) {
         console.error(error);
@@ -63,7 +71,8 @@ async function update(id, authorData) {
 
 async function remove(id) {
     try {
-        const result = await authorModel.remove(id);
+        const result = await authorModel.findByPk(id);
+        await result.destroy();
         return {data:result};
     } catch (error) {
         console.error(error);

@@ -58,7 +58,14 @@ async function update(id, poemData) {
         if (author_id) {
             poem.author_id = author_id;
         }
-        const newPoem = await poemModel.update(id,poem);
+        const newPoem = await poemModel.update(poemData,
+            {
+                where: 
+                {
+                    poem_id:id
+                }
+            }
+        );        
         return {data:newPoem};
     } catch (error) {
         console.error(error);
@@ -69,7 +76,8 @@ async function update(id, poemData) {
 
 async function remove(id) {
     try {
-        const result = await poemModel.remove(id);
+        const result = await poemModel.findByPk(id);
+        await result.destroy();
         return {data:result};
     } catch (error) {
         console.error(error);

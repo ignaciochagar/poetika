@@ -22,13 +22,12 @@ const authorModel = sequelize.define("author",
     }
 )
 
-authorModel.hasMany(poemModel,
+/* authorModel.hasMany(poemModel,
     {
-        //through:"band_has_artist",
         as:"poem",
         foreignKey:"poem_id"
     }
-);
+); */
 
 /* poemModel.belongsTo(authorModel,
     {
