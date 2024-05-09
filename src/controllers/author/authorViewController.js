@@ -10,8 +10,15 @@ async function getById(req,res){
     const id = parseInt(req.params.id);
     console.log("id",id);
     const {error,data} = await authorController.getById(id)
-    const {error_p,data_p} = await poemController.getAll();
-    res.render("author/show",{error,author:data,poem:data_p});
+    let poemArray = []
+    let poemUnity = []
+    for (let i = 0; data['poem'].length > i; i++) {
+        if (data['poem'][i]['dataValues']['author_id'] == id) {
+            poemUnity = [data['poem'][i]['dataValues']['title'], data['poem'][i]['dataValues']['year_release'], data['poem'][i]['dataValues']['poem_id']]
+            poemArray.push(poemUnity);
+        }
+    }
+    res.render("author/show",{error,author:data['author'], poemArray});
 }
 
 async function createForm(req,res){
@@ -23,10 +30,11 @@ async function create(req,res){
     const {error,data} = await authorController.create({name, born});
     res.redirect("/author");
 }
+
 async function updateForm(req,res){
     const id = parseInt(req.params.id);
-    const {error,data:author}= await authorController.getById(id);
-    res.render("author/update",{error,author});
+    const {error,data}= await authorController.getById(id);
+    res.render("author/update",{error,author:data['author']});
 }
 
 async function update(req,res){

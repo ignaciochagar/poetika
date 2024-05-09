@@ -1,8 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-import authorModel from "./authorModel.js"
-
 const poemModel = sequelize.define("poem",
     {
         poem_id:{
@@ -24,7 +22,7 @@ const poemModel = sequelize.define("poem",
         }, 
         author_id:{
             type: DataTypes.INTEGER,
-            primaryKey:true, 
+            primaryKey:false, 
             allowNull:false
         }
     }
@@ -47,4 +45,5 @@ const poemModel = sequelize.define("poem",
     }
 );
  */
+
 export default poemModel;

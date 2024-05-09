@@ -9,6 +9,12 @@ block content
             p Año de nacimiento: #{author.born}
 
 
+        div(id="asociados")
+            h3 Poemas asociados:
+            each poem in poemArray 
+                a(class="poemAsociado", href="/poem/"+poem[2])= `${poem[2]} - ${poem[0]} (${poem[1]})`
+
+
 
     a(href="/author")
         button Volver
