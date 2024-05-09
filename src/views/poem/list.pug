@@ -1,26 +1,12 @@
 extends ../layout
 
 block content
-<<<<<<< HEAD
-    h1 poem of poems
-=======
     h1 Lista de poemas
->>>>>>> ivan_new
     if error 
         p(class="error")= error
     if data
         ul
             each poem in data 
-<<<<<<< HEAD
-                li
-                    a(href="/poem/"+poem.poem_id)= poem.title
-                    a(href=`/poem/${poem.poem_id}/update`) 
-                        button Editar
-                    form(action=`/poem/${poem.poem_id}/remove`, method="post") 
-                        button(type="submit") Borrar
-    a(href="/poem/new")
-        button Nuevo
-=======
                     div(id="listado")
                         a(href="/poem/"+poem.poem_id)= `${poem.poem_id} - ${poem.title} (${poem.author})`
                         a(href=`/poem/${poem.poem_id}/update`, method="post") 
@@ -32,4 +18,3 @@ block content
 
     a(href="/poem/new")
         button Crear nuevo poema
->>>>>>> ivan_new
