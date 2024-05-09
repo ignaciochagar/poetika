@@ -23,8 +23,8 @@ async function getById(id) {
         console.error(error);
         return { error };
     }
-
 }
+
 
 async function create(poemData) {
     try {
@@ -35,8 +35,6 @@ async function create(poemData) {
         console.error(error);
         return {error}
     }
-
-
 }
 
 async function update(id, poemData) {

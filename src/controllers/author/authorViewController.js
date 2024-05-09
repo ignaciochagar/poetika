@@ -1,4 +1,5 @@
 import authorController from "./authorController.js";
+import poemController from "../poem/poemController.js";
 
 async function getAll(req,res){
     const {error,data} = await authorController.getAll();
@@ -9,7 +10,10 @@ async function getById(req,res){
     const id = parseInt(req.params.id);
     console.log("id",id);
     const{error,data} = await authorController.getById(id)
-    res.render("author/show",{error,author:data});
+    const{error_p,data_p} = await poemController.getAll()
+    console.log('data_p ' + data_p)
+    console.log('error_p ' + error_p)
+    res.render("author/show",{error,author:data,poem:data_p});
 }
 
 async function createForm(req,res){
