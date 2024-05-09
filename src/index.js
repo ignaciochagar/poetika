@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import router from "./routes/router.js";
 =======
 
@@ -8,6 +9,11 @@ import router from "./router/router.js";
 
 //import router from "./routes/router.js";
 >>>>>>> ivan
+=======
+import connection from "./config/mysql.js";
+import router from "./router/router.js";
+import AuthorModel from "./models/authorModel.js";
+>>>>>>> ivan_new
 
 dotenv.config();
 
@@ -23,13 +29,20 @@ app.use(express.urlencoded({extended:true})); // permite leer el body de llamada
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use("/",router);
 =======
+=======
+app.use("/",router);
 
-app.use("/", router);
-app.use("/session", router);
-app.use("/find", router);
-app.use("/new_user", router);
+app.get("/",async(req,res)=>{
+    const rows = await AuthorModel.findAll();
+    console.log("rows",rows);
+    res.json(rows);
+})
+
+>>>>>>> ivan_new
+
 
 
 >>>>>>> ivan

@@ -5,8 +5,15 @@ block content
         p(class="error")= error
     if poem 
         h2= poem.title 
+<<<<<<< HEAD
         p Author: #{poem.author==1 ? 'si': 'no'} 
         if poem.year_release
             p Year_release: #{poem.year_release}
+=======
+        if poem.author
+            p Autor del poema: #{poem.author}
+        if poem.year_release 
+            p Año de creacion: #{poem.year_release}
+>>>>>>> ivan_new
     a(href="/poem")
         button Volver

@@ -1,15 +1,17 @@
 import authorController from "./authorController.js";
+import poemController from "../poem/poemController.js";
 
 async function getAll(req,res){
-    const {error,data} = await authorontroller.getAll();
+    const {error,data} = await authorController.getAll();
     res.render("author/list",{error,data});
 }
 
 async function getById(req,res){
     const id = parseInt(req.params.id);
     console.log("id",id);
-    const{error,data} = await authorController.getById(id)
-    res.render("artist/show",{error,author:data});
+    const {error,data} = await authorController.getById(id)
+    const {error_p,data_p} = await poemController.getAll();
+    res.render("author/show",{error,author:data,poem:data_p});
 }
 
 async function createForm(req,res){
@@ -31,7 +33,7 @@ async function update(req,res){
     const id = parseInt(req.params.id);
     const {name, born} = req.body;
     const {error,data} = await authorController.update(id,{name, born});
-    res.redirect("/artist");
+    res.redirect("/author");
 }
 
 async function remove(req,res){
