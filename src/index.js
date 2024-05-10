@@ -1,15 +1,24 @@
 import express from "express";
 import dotenv from "dotenv";
-
-import connection from "./config/mysql.js";
+import session from "express-session";
+//import connection from "./config/mysql.js";
 import router from "./router/router.js";
-import AuthorModel from "./models/authorModel.js";
-
+//import AuthorModel from "./models/authorModel.js";
 
 dotenv.config();
 
-const app = express();
+const sessionData = {
+    secret: process.env.SESSION_SECRET,
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        secure:false,
+        maxAge: 60 * 60 * 1000
+    }
 
+}
+const app = express();
+app.use(session(sessionData));
 app.use(express.static("public")); // permite mostrar archivos en la carpeta public
 
 app.set("views","./src/views");
@@ -19,15 +28,9 @@ app.use(express.json()); // permite leer el body de llamadas POST y PUT tipo JSO
 app.use(express.urlencoded({extended:true})); // permite leer el body de llamadas POST y PUT tipo URL Encoded
 
 
-
 app.use("/",router);
-
-app.get("/",async(req,res)=>{
-    const rows = await AuthorModel.findAll();
-    console.log("rows",rows);
-    res.json(rows);
-})
 
 app.listen(3000,()=>{
     console.log("Servidor en marcha en el puerto "+process.env.APP_PORT);
 })
+
