@@ -9,15 +9,12 @@ block content
     if data
         ul
             each author in data 
-                script 
-                    findID = author.splice(0,2);
-
                 div(id="listado")
-                    a(href="/author/"+findID)= author
-                    a(href=`/author/${author.author_id}/update`, method="post") 
+                    a(href="/author/"+author[0])= author[1]
+                    a(href=`/author/${author[0]}/update`, method="post") 
                         button Editar
 
-                    form(action=`/author/${author.author_id}/remove`, method="post") 
+                    form(action=`/author/${author[0]}/remove`, method="post") 
                         button(type="submit") Borrar
 
 
