@@ -24,14 +24,12 @@ const authorModel = sequelize.define("author",
 
 /* authorModel.hasMany(poemModel,
     {
-        as:"poem",
-        foreignKey:"poem_id"
+        foreignKey:"author_id"
     }
 ); */
 
 /* poemModel.belongsTo(authorModel,
     {
-        //through:"band_has_artist",
         as:"author",
         foreignKey:"author_id"
     }

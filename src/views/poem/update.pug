@@ -9,13 +9,21 @@ block content
             label(for="title") Titulo 
             input(id="title" type="text" name="titulo" value=poem.title) 
 
-            label(for="author")
+            <br><br>
+
+            label(for="author") Autor: 
             input#author(type="text", name="author" value=poem.author)  
 
-            label(for="year_release")
+            <br><br>
+
+            label(for="year_release") Año de creacion: 
             input#year_release(type="text", name="year_release" value=poem.year_release)  
 
-            label(for="author_id")
+            <br><br>
+
+            label(for="author_id") ID del autor: 
             input#author_id(type="text", name="author_id" value=poem.author_id)  
+
+            <br><br>
             
             button(type="submit") Guardar

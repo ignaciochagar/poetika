@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    h1 Lista de autores por inicial
+
+    div(id="alfabetico")
+        a(class="letras" href="/author/letter/I") I
+
+
+    if error 
+        p(class="error")= error
+    if data
+        ul
+            each author in data 
+                script 
+                    findID = author.splice(0,2);
+
+                div(id="listado")
+                    a(href="/author/"+findID)= author
+                    a(href=`/author/${author.author_id}/update`, method="post") 
+                        button Editar
+
+                    form(action=`/author/${author.author_id}/remove`, method="post") 
+                        button(type="submit") Borrar
+
+
+    a(href="/author/new")
+        button Crear nuevo autor

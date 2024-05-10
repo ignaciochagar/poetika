@@ -13,6 +13,8 @@ router.get("/:id",authorViewController.getById);
 router.get("/:id/update",hasSession,authorViewController.updateForm);
 router.post("/:id",hasSession,authorViewController.update);
 router.post("/:id/remove",hasSession,authorViewController.remove);
+router.get("/letter/:letter",authorViewController.getByLetter);
+
 
 
 

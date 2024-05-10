@@ -2,9 +2,15 @@ extends ../layout
 
 block content 
     form(action="/author", method="post") 
-        label(for="name") Nombre 
+        label(for="name") Nombre: 
         input(id="name" type="text" name="name") 
-        label(for="born")
+
+        <br><br>
+
+        label(for="born") Nacimiento: 
         input#born(type="text", name="born")  
+
+        <br><br>
+        
         button(type="submit") Crear
 

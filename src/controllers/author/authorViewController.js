@@ -8,10 +8,37 @@ async function getAll(req,res){
 
 async function getById(req,res){
     const id = parseInt(req.params.id);
-    console.log("id",id);
     const {error,data} = await authorController.getById(id)
-    const {error_p,data_p} = await poemController.getAll();
-    res.render("author/show",{error,author:data,poem:data_p});
+    let findData;
+    let poemArray = []
+    let poemUnity = []
+    for (let i = 0; data['poem'].length > i; i++) {
+        findData = data['poem'][i]['dataValues'];
+        if (data['poem'][i]['dataValues']['author_id'] == id) {
+            poemUnity = [findData['title'], findData['year_release'], findData['poem_id']]
+            poemArray.push(poemUnity);
+        }
+    }
+    res.render("author/show",{error,author:data['author'], poemArray});
+}
+
+async function getByLetter(req,res) {
+    const letra = req.params.letter;
+    const {error,data} = await authorController.getAll()
+    let authorUnity = [];
+    let authorArray = [];
+    let author;
+    let comienzo;
+    for (author of data) {
+        comienzo = author.name;
+        comienzo = comienzo.charAt(0)
+        if (comienzo == letra) {
+            authorUnity = [`${author.author_id} - ${author.name} (${author.born})`]
+            authorArray.push(authorUnity)
+        }        
+    }
+    console.log(authorArray);
+    res.render('author/letter', {error,data:authorArray});
 }
 
 async function createForm(req,res){
@@ -23,10 +50,11 @@ async function create(req,res){
     const {error,data} = await authorController.create({name, born});
     res.redirect("/author");
 }
+
 async function updateForm(req,res){
     const id = parseInt(req.params.id);
-    const {error,data:author}= await authorController.getById(id);
-    res.render("author/update",{error,author});
+    const {error,data}= await authorController.getById(id);
+    res.render("author/update",{error,author:data['author']});
 }
 
 async function update(req,res){
@@ -51,7 +79,8 @@ export {
     createForm,
     update,
     updateForm,
-    remove
+    remove,
+    getByLetter
 }
 
 export default {
@@ -61,5 +90,6 @@ export default {
     createForm,
     update,
     updateForm,
-    remove
+    remove,
+    getByLetter
 }

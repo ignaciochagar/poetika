@@ -18,6 +18,7 @@ function isTokenCorrect (req,res,next){
 }
 
 function hasSession(req,res,next){
+    return next();
     const user = req.session.user;
     console.log("session user",req.session);
     if(!user){

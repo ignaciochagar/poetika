@@ -1,5 +1,6 @@
 import { where } from "sequelize";
 import authorModel from "../../models/authorModel.js";
+import poemModel from "../../models/poemModel.js";
 
 async function getAll() {
     try {
@@ -15,17 +16,18 @@ async function getAll() {
 async function getById(id) {
     try {
         const author = await authorModel.findByPk(id);
+        const poem = await poemModel.findAll();
         if (!author) {
             return { error: "El autor no existe" };
         }
-        return { data: author };
+        return { data: {author, poem} };
     }
     catch (error) {
         console.error(error);
         return { error };
     }
-
 }
+
 
 async function create(authorData) {
     try {
@@ -36,8 +38,6 @@ async function create(authorData) {
         console.error(error);
         return {error}
     }
-
-
 }
 
 async function update(id, authorData) {
@@ -66,7 +66,6 @@ async function update(id, authorData) {
         console.error(error);
         return {error}
     }
-   
 }
 
 async function remove(id) {

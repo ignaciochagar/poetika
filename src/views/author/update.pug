@@ -7,10 +7,14 @@ block content
         div(id="update")
             form(action="/author/"+author.author_id, method="post") 
 
-                label(for="name") Nombre 
+                label(for="name") Nombre: 
                 input(id="name" type="text" name="name" value=author.name) 
 
-                label(for="born")
+                <br><br>
+
+                label(for="born") Nacimiento: 
                 input#born(type="text", name="born" value=author.born)  
                 
+                <br><br>
+
                 button(type="submit") Guardar
