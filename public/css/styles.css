@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-body{
-    background-color:#528559
-}
-
-.layout-title{
-    background-color:black;
-    color:white;
-}
-.error{
-    color:red;
-=======
 body {
     background-color: aquamarine;
 }
@@ -59,5 +47,4 @@ button {
 
 h1 {
     margin-left: 25px;
->>>>>>> ivan_new
 }

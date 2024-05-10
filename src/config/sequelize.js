@@ -9,11 +9,7 @@ const sequelize = new Sequelize(
     process.env.MYSQL_PASSWORD,
     {
         host: process.env.MYSQL_HOST,
-<<<<<<< HEAD
         port:3306,
-=======
-        port:3310,
->>>>>>> ivan_new
         dialect:"mysql",
         define: {
             timestamps:false,
