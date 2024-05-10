@@ -2,11 +2,13 @@ extends ../layout
 
 block content 
     form(action="/poem", method="post") 
-        label(for="title") Title 
-        input(id="title" type="text" title="title") 
-        label(for="author") Author
-        input#year_release(type="text", title="author")
+        label(for="title") Nombre 
+        input(id="title" type="text" name="title") 
+        label(for="author")
+        input#author(type="text", name="author")  
         label(for="year_release")
-        input#author(type="number", title="year_release")  
+        input#year_release(type="text", name="year_release")  
+        label(for="author_id")
+        input#author_id(type="text", name="author_id")  
         button(type="submit") Crear
 

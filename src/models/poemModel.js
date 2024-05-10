@@ -1,58 +1,76 @@
-import connection from "../config/mysql.js";
+import { DataTypes } from "sequelize";
+import sequelize from "../config/sequelize.js";
 
-async function findAll() {
-    console.log("connection",connection)
-    const queryString="SELECT * FROM poem";
-    const [rows,fields] =await connection.query(queryString);
-    console.log("find all");
-    console.log("rows",rows);
-    console.log("fields",fields);
-    return rows;
-}
+<<<<<<< HEAD
 
-async function findByPk(pk){
-    const queryString="SELECT * FROM poem WHERE poem_id=?";
-    const [rows,fields] = await connection.query(queryString,[pk]);
-    console.log("find by pk");
-    console.log("rows",rows);
-    console.log("fields",fields);
-    return rows[0];
-}
+=======
+import authorModel from "./authorModel.js"
+>>>>>>> ivan_new
 
-async function create(data){
-    const queryString = "INSERT INTO poem (title,author,year_release) VALUES (?,?,?)";
-    const [rows,fields] = await connection.query(queryString,[data.title,data.author,data.year_release]);
-    console.log("create");
-    console.log("rows",rows);
-    console.log("fields",fields);
-    return rows;
-}
+const poemModel = sequelize.define("poem",
+    {
+        poem_id:{
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull:false,
+            primaryKey:true,
+            autoIncrement:true
+        },
+        title: {
+<<<<<<< HEAD
+            type:DataTypes.STRING(45),
+            allowNull:false
+        },
+        author: {
+            type:DataTypes.STRING(45),
+            
+        },
+        year_release:{
+            type:DataTypes.INTEGER.UNSIGNED,
+=======
+            type: DataTypes.STRING(45),
+            allowNull:false
+        },
+        author:{
+            type: DataTypes.STRING(45), 
+            allowNull:false
+        }, 
+        year_release:{
+            type: DataTypes.INTEGER
+        }, 
+        author_id:{
+            type: DataTypes.INTEGER,
+            primaryKey:true, 
+            allowNull:false
+>>>>>>> ivan_new
+        }
+    }
+)
 
+<<<<<<< HEAD
+poemModel.belongsToMany(poemModel,
+    {
+        through:"poem_has_poem",
+        as:"authors",
+        foreignKey:"poem_id"
+    }
+);
+=======
 
-async function update(pk,data){
-    const queryString = "UPDATE poem SET title=?, author=?, year_release=? WHERE poem_id=?";
-    const [rows,fields] = await connection.query(queryString,[data.title,data.author,data.year_release,pk]);
-    console.log("update");
-    console.log("rows",rows);
-    console.log("fields",fields);
-    return rows;
-}
+/* authorModel.belongsToMany(bandModel,
+    {
+        through:"band_has_artist",
+        as:"bandas",
+        foreignKey:"band_id"
+    }
+); */
 
-async function remove(pk){
-    const queryString="DELETE FROM artist WHERE poem_id=?";
-    const [rows,fields] = await connection.query(queryString,[pk]);
-    console.log("delete");
-    console.log("rows",rows);
-    console.log("fields",fields);
-    return rows;
-}
-
-export default {
-    findAll,
-    findByPk,
-    create,
-    update,
-    remove
-
-}
-
+/* poemModel.belongsToMany(authorModel,
+    {
+        //through:"band_has_artist",
+        as:"author",
+        foreignKey:"author_id"
+    }
+);
+ */
+>>>>>>> ivan_new
+export default poemModel;

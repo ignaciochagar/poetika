@@ -1,10 +1,9 @@
-
 import poemModel from "../../models/poemModel.js";
 
 async function getAll() {
     try {
-        const poems = await poemModel.findAll();
-        return { data: poems };
+        const poem = await poemModel.findAll();
+        return { data: poem };
     }
     catch (error) {
         console.error(error);
@@ -26,49 +25,62 @@ async function getById(id) {
     }
 }
 
+
 async function create(poemData) {
     try {
         const newPoem = await poemModel.create(poemData);
-        console.log("new poem", newPoem);
-        return { data: newPoem };
+        console.log("new poem",newPoem);
+        return {data:newPoem};
     } catch (error) {
         console.error(error);
-        return { error }
+        return {error}
     }
 }
 
 async function update(id, poemData) {
     try {
-        const { title, author, year_release } = poemData;
-        const poem = await poemModel.findByPk(id);
+        const { title, author, year_release, author_id} = poemData;
+        const poem  = await poemModel.findByPk(id);
         if (!poem) {
-            return { error: "No se puede modificar un poema que no existe, dartacan!" };
+            return { error: "No se puede modificar un autor que no existe, txoripan!" };
         }
         if (title) {
             poem.title = title;
         }
         if (author) {
-            poem.author = author
+            poem.author = author;
         }
         if (year_release) {
             poem.year_release = year_release;
         }
-        const newPoem = await poemModel.update(id, poem);
-        return { data: newPoem };
+        if (author_id) {
+            poem.author_id = author_id;
+        }
+        const newPoem = await poemModel.update(poemData,
+            {
+                where: 
+                {
+                    poem_id:id
+                }
+            }
+        );        
+        return {data:newPoem};
     } catch (error) {
         console.error(error);
-        return { error }
+        return {error}
     }
-
+   
 }
 
 async function remove(id) {
     try {
-        const result = await poemModel.remove(id);
-        return { data: result };
+        const result = await poemModel.findByPk(id);
+        await result.destroy();
+        return {data:result};
     } catch (error) {
         console.error(error);
     }
+    
 }
 
 export {
@@ -78,6 +90,7 @@ export {
     update,
     remove
 };
+
 
 export default {
     getAll,
