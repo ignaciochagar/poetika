@@ -26,8 +26,8 @@ async function getById(id) {
         console.error(error);
         return { error };
     }
-
 }
+
 
 async function create(authorData) {
     try {
@@ -38,8 +38,6 @@ async function create(authorData) {
         console.error(error);
         return {error}
     }
-
-
 }
 
 async function update(id, authorData) {
@@ -68,7 +66,6 @@ async function update(id, authorData) {
         console.error(error);
         return {error}
     }
-   
 }
 
 async function remove(id) {

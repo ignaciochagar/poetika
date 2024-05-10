@@ -69,3 +69,13 @@ h1 {
     color: black;
     margin: 5px 25px;
 }
+
+#showAuthor {
+    text-decoration: none;
+    color: black;
+}
+
+#showAuthor:hover {
+    font-style: italic;
+    letter-spacing: 2px;
+}
