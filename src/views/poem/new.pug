@@ -2,13 +2,9 @@ extends ../layout
 
 block content 
     form(action="/poem", method="post") 
+
         label(for="title") Nombre: 
         input(id="title" type="text" name="title") 
-
-        <br><br>
-
-        label(for="author") Autor: 
-        input#author(type="text", name="author")  
 
         <br><br>
 
@@ -16,8 +12,10 @@ block content
         input#year_release(type="text", name="year_release")  
 
         <br><br>
+
+        label(for='author_id') Autor: 
         select#author_id(name="author_id") 
-            each  author in authors 
+            each author in authors 
                 option(value=author.author_id)= author.name 
 
         <br><br>
