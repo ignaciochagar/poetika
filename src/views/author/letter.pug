@@ -31,6 +31,8 @@ block content
 
     h1 Lista de autores por inicial
 
+    h3= dataNone
+
     if error 
         p(class="error")= error
     if data
@@ -43,7 +45,7 @@ block content
 
                     form(action=`/author/${author[0]}/remove`, method="post") 
                         button(type="submit") Borrar
-
+  
 
     a(href="/author/new")
         button Crear nuevo autor

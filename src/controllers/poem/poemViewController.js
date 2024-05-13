@@ -29,7 +29,12 @@ async function getByLetter(req,res) {
             poemArray.push(poemUnity)
         }        
     }
-    res.render('poem/letter', {error,data:poemArray});
+    if (poemArray.length != 0) {
+        res.render('poem/letter', {error,data:poemArray});
+    } else {
+        let poemNone = 'No hay registros con su seleccion';
+        res.render('poem/letter', {error,dataNone:poemNone});
+    }
 }
 
 async function createForm(req,res){
