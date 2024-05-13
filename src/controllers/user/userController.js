@@ -77,10 +77,12 @@ async function register(email,password,passwordRepeat){
 async function login(email,password){
     try {
         if(!email || !password ){
+            app.get();
             return {error:"falta email o contraseña"};
         }
         const {data:oldUser} = await getByEmail(email);
         if(!oldUser){
+            app.get();
             return {error:"la combinación de usuario y contraseña es errónea"};
         }
         const isPasswordCorrect = await bcrypt.compare(password,oldUser.password);
