@@ -1,14 +1,13 @@
 extends ../layout
 
+
 block content
     h1 Lista de autores
-
-    div(id="alfabetico")
-        a(class="letras" href="/author/letter/I") I
 
     if error 
         p(class="error")= error
     if data
+
         ul
             each author in data 
                     div(id="listado")
