@@ -7,15 +7,13 @@ block content
 
         <br><br>
 
-        label(for="author") Autor: 
-        input#author(type="text", name="author")  
-
-        <br><br>
+       
 
         label(for="year_release") Año de creacion: 
         input#year_release(type="text", name="year_release")  
 
         <br><br>
+        label(for="author") Autor: 
         select#author_id(name="author_id") 
             each  author in authors 
                 option(value=author.author_id)= author.name 
