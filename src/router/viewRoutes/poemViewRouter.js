@@ -12,6 +12,7 @@ router.get("/:id",poemViewController.getById);
 router.get("/:id/update",poemViewController.updateForm);
 router.post("/:id",poemViewController.update);
 router.post("/:id/remove",poemViewController.remove);
+router.get("/letter/:letter",poemViewController.getByLetter);
 
 
 

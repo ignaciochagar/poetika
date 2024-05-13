@@ -15,8 +15,11 @@ block content
 
         label(for='author_id') Autor: 
         select#author_id(name="author_id") 
+            option(value="") Seleccione autor
+            option(value="newAuthor") Nuevo autor
+
             each author in authors 
-                option(value=author.author_id)= author.name 
+                option(value=author.author_id)= author.name
 
         <br><br>
         

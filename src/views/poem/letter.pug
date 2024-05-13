@@ -29,19 +29,21 @@ block content
         a(class="letras" href="/poem/letter/Y") Y
         a(class="letras" href="/poem/letter/Z") Z
 
-    h1 Lista de poemas
+    h1 Lista de poemas por inicial
+
+
     if error 
         p(class="error")= error
     if data
         ul
             each poem in data 
-                    div(id="listado")
-                        a(href="/poem/"+poem.poem_id)= `${poem.poem_id} - ${poem.title} (${poem.author})`
-                        a(href=`/poem/${poem.poem_id}/update`, method="post") 
-                            button Editar
+                div(id="listado")
+                    a(href="/poem/"+poem[0])= poem[1]
+                    a(href=`/poem/${poem[0]}/update`, method="post") 
+                        button Editar
 
-                        form(action=`/poem/${poem.poem_id}/remove`, method="post") 
-                            button(type="submit") Borrar
+                    form(action=`/poem/${poem[0]}/remove`, method="post") 
+                        button(type="submit") Borrar
 
 
     a(href="/poem/new")

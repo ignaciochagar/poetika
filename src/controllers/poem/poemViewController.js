@@ -14,6 +14,24 @@ async function getById(req,res){
     res.render("poem/show",{error,poem:data});
 }
 
+async function getByLetter(req,res) {
+    const letra = req.params.letter;
+    const {error,data} = await poemController.getAll()
+    let poemUnity = [];
+    let poemArray = [];
+    let poem;
+    let comienzo;
+    for (poem of data) {
+        comienzo = poem.title;
+        comienzo = comienzo.charAt(0)
+        if (comienzo == letra) {
+            poemUnity = [poem.poem_id, `${poem.poem_id} - ${poem.title} (${poem.year_release})`]
+            poemArray.push(poemUnity)
+        }        
+    }
+    res.render('poem/letter', {error,data:poemArray});
+}
+
 async function createForm(req,res){
     const {error,data} = await authorController.getAll();
     res.render("poem/new", {authors:data});
@@ -22,13 +40,16 @@ async function createForm(req,res){
 async function create(req,res){
     const {title, year_release, author_id} = req.body;
 
-    const name = await authorModel.findByPk(author_id);
-    let author = name.name;
-
-    const {error,data} = await poemController.create({title, author, year_release, author_id});
-    console.log(`esto son datos ${data}`)
-    console.log(`esto son errores ${error}`);
-    res.redirect("/poem");
+    if (author_id >= 1) {
+        const name = await authorModel.findByPk(author_id);
+        let author = name.name;
+        const {error,data} = await poemController.create({title, author, year_release, author_id});
+        res.redirect("/poem");
+    } else if (author_id === "newAuthor") {
+        res.send('Aqui es para un nuevo autor')
+    } else {
+        res.send('Aqui es donde falla si no seleccionas nada')
+    }
 }
 
 async function updateForm(req,res){
@@ -59,7 +80,8 @@ export {
     createForm,
     update,
     updateForm,
-    remove
+    remove,
+    getByLetter
 }
 
 export default {
@@ -69,5 +91,6 @@ export default {
     createForm,
     update,
     updateForm,
-    remove
+    remove,
+    getByLetter
 }
