@@ -1,4 +1,6 @@
 import poemController from "./poemController.js";
+import authorController from "../author/authorController.js"
+import authorModel from "../../models/authorModel.js";
 
 async function getAll(req,res){
     const {error,data} = await poemController.getAll();
@@ -13,12 +15,19 @@ async function getById(req,res){
 }
 
 async function createForm(req,res){
-    res.render("poem/new");
+    const {error,data} = await authorController.getAll();
+    res.render("poem/new", {authors:data});
 }
 
 async function create(req,res){
-    const {title, author, year_release, author_id} = req.body;
+    const {title, year_release, author_id} = req.body;
+
+    const name = await authorModel.findByPk(author_id);
+    let author = name.name;
+
     const {error,data} = await poemController.create({title, author, year_release, author_id});
+    console.log(`esto son datos ${data}`)
+    console.log(`esto son errores ${error}`);
     res.redirect("/poem");
 }
 

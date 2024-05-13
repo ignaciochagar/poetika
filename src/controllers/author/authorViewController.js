@@ -33,7 +33,7 @@ async function getByLetter(req,res) {
         comienzo = author.name;
         comienzo = comienzo.charAt(0)
         if (comienzo == letra) {
-            authorUnity = [`${author.author_id} - ${author.name} (${author.born})`]
+            authorUnity = [author.author_id, `${author.author_id} - ${author.name} (${author.born})`]
             authorArray.push(authorUnity)
         }        
     }
