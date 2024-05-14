@@ -2,13 +2,13 @@ extends ../layout
 
 block content
     if error 
-        p.error= error
+        p(class="error")= error
     if poem 
         h2= poem.title 
         if poem.author
             p Autor del poema: 
-                a#showAuthor(href=`/Author/${poem.author_id}`)= poem.author
+                a(id="showAuthor", href=`/Author/${poem.author_id}`) #{poem.author}
         if poem.year_release 
-            p Año de creación: #{poem.year_release}
-        a(href="/poem")
-            button Volver
+            p Año de creacion: #{poem.year_release}
+    a(href="/poem")
+        button Volver

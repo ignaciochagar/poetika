@@ -1,5 +1,6 @@
 extends ../layout
 
+
 block content
     div(id="alfabetico")
         a(class="letras" href="/author/letter/A") A
@@ -32,16 +33,19 @@ block content
     h1 Lista de autores
 
     if error 
-        p.error= error
+        p(class="error")= error
     if data
+
         ul
             each author in data 
-                li(style="display: flex; align-items: center;") 
-                    a(href="/author/"+author.author_id, style="font-size: 1.6rem")= `${author.author_id} - ${author.name} (${author.born})`
-                    form(action=`/author/${author.author_id}/update`, method="post") 
-                        button(type="submit") Editar
-                    form(action=`/author/${author.author_id}/remove`, method="post") 
-                        button(type="submit") Borrar
+                    div(id="listado")
+                        a(href="/author/"+author.author_id)= `${author.author_id} - ${author.name} (${author.born})`
+                        a(href=`/author/${author.author_id}/update`, method="post") 
+                            button Editar
+
+                        form(action=`/author/${author.author_id}/remove`, method="post") 
+                            button(type="submit") Borrar
+
 
     a(href="/author/new")
         button Crear nuevo autor

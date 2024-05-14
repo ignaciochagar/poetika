@@ -30,22 +30,19 @@ block content
         a(class="letras" href="/poem/letter/Z") Z
 
     h1 Lista de poemas
-
     if error 
-        p.error= error
-
+        p(class="error")= error
     if data
         ul
             each poem in data 
-                li(id="listado")
-                    div(style="display: flex; align-items: center;")
-                        a(href="/poem/"+poem.poem_id, style="font-size: 1.6rem;")= `${poem.poem_id} - ${poem.title} (${poem.author})`
-                        form(action=`/poem/${poem.poem_id}/update`, method="post") 
-                            button(type="submit") Editar
+                    div(id="listado")
+                        a(href="/poem/"+poem.poem_id)= `${poem.poem_id} - ${poem.title} (${poem.author})`
+                        a(href=`/poem/${poem.poem_id}/update`, method="post") 
+                            button Editar
+
                         form(action=`/poem/${poem.poem_id}/remove`, method="post") 
                             button(type="submit") Borrar
 
+
     a(href="/poem/new")
         button Crear nuevo poema
-
-
