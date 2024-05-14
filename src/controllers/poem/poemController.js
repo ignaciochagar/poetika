@@ -47,9 +47,9 @@ async function update(id, poemData) {
         if (title) {
             poem.title = title;
         }
-        if (author) {
+        /* if (author) {
             poem.author = author;
-        }
+        } */
         if (year_release) {
             poem.year_release = year_release;
         }
