@@ -37,8 +37,12 @@ async function getByLetter(req,res) {
             authorArray.push(authorUnity)
         }        
     }
-    console.log(authorArray);
-    res.render('author/letter', {error,data:authorArray});
+    if (authorArray.length != 0) {
+        res.render('author/letter', {error,data:authorArray});
+    } else {
+        let authorNone = 'No hay registros con su seleccion';
+        res.render('author/letter', {error,dataNone:authorNone});
+    }
 }
 
 async function createForm(req,res){

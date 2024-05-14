@@ -1,8 +1,37 @@
 extends ../layout
 
 block content
+    div(id="alfabetico")
+        a(class="letras" href="/author/letter/A") A
+        a(class="letras" href="/author/letter/B") B
+        a(class="letras" href="/author/letter/C") C
+        a(class="letras" href="/author/letter/D") D
+        a(class="letras" href="/author/letter/E") E
+        a(class="letras" href="/author/letter/F") F
+        a(class="letras" href="/author/letter/G") G
+        a(class="letras" href="/author/letter/H") H
+        a(class="letras" href="/author/letter/I") I
+        a(class="letras" href="/author/letter/J") J
+        a(class="letras" href="/author/letter/K") K
+        a(class="letras" href="/author/letter/L") L
+        a(class="letras" href="/author/letter/M") M
+        a(class="letras" href="/author/letter/N") N
+        a(class="letras" href="/author/letter/O") O
+        a(class="letras" href="/author/letter/P") P
+        a(class="letras" href="/author/letter/Q") Q
+        a(class="letras" href="/author/letter/R") R
+        a(class="letras" href="/author/letter/S") S
+        a(class="letras" href="/author/letter/T") T
+        a(class="letras" href="/author/letter/U") U
+        a(class="letras" href="/author/letter/V") V
+        a(class="letras" href="/author/letter/W") W
+        a(class="letras" href="/author/letter/X") X
+        a(class="letras" href="/author/letter/Y") Y
+        a(class="letras" href="/author/letter/Z") Z
+
     h1 Lista de autores por inicial
 
+    h3= dataNone
 
     if error 
         p(class="error")= error
@@ -16,7 +45,7 @@ block content
 
                     form(action=`/author/${author[0]}/remove`, method="post") 
                         button(type="submit") Borrar
-
+  
 
     a(href="/author/new")
         button Crear nuevo autor
