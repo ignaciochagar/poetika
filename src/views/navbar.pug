@@ -12,12 +12,11 @@ html
                     a(href="/author") Autores 
                 div(class="nav-link") 
                     a(href="/poem") Poemas
-                li(class="nav-link") 
+                div(class="nav-link") 
                    a(href="/login") 
                     button(type="submit") Login
-                li(class="nav-link") 
                    a(href="/register")
                     button(type="submit") Registro
-                li(class="nav-link") 
-                form(action="/logout", method="post") 
-                   button(type="submit") Logout
+                   a(href="/logout")
+                    button(type="submit") Logout
+
