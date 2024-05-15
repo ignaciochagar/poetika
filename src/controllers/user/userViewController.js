@@ -24,13 +24,13 @@ async function login(req,res) {
     }
     else{
         req.session.user = data;
-        res.redirect("/artist");
+        res.redirect("/author");
     }
 }
 
 async function logout(req,res){
     req.session.user = null;
-    res.redirect("/artist");
+    res.redirect("/author");
 }
 
 async function getAll(req,res){
