@@ -1,51 +1,49 @@
 extends ../layout
 
-
 block content
-    div(id="alfabetico")
-        a(class="letras" href="/author/letter/A") A
-        a(class="letras" href="/author/letter/B") B
-        a(class="letras" href="/author/letter/C") C
-        a(class="letras" href="/author/letter/D") D
-        a(class="letras" href="/author/letter/E") E
-        a(class="letras" href="/author/letter/F") F
-        a(class="letras" href="/author/letter/G") G
-        a(class="letras" href="/author/letter/H") H
-        a(class="letras" href="/author/letter/I") I
-        a(class="letras" href="/author/letter/J") J
-        a(class="letras" href="/author/letter/K") K
-        a(class="letras" href="/author/letter/L") L
-        a(class="letras" href="/author/letter/M") M
-        a(class="letras" href="/author/letter/N") N
-        a(class="letras" href="/author/letter/O") O
-        a(class="letras" href="/author/letter/P") P
-        a(class="letras" href="/author/letter/Q") Q
-        a(class="letras" href="/author/letter/R") R
-        a(class="letras" href="/author/letter/S") S
-        a(class="letras" href="/author/letter/T") T
-        a(class="letras" href="/author/letter/U") U
-        a(class="letras" href="/author/letter/V") V
-        a(class="letras" href="/author/letter/W") W
-        a(class="letras" href="/author/letter/X") X
-        a(class="letras" href="/author/letter/Y") Y
-        a(class="letras" href="/author/letter/Z") Z
+  div(id="alfabetico")
+    a(class="letras" href="/author/letter/A") A
+    a(class="letras" href="/author/letter/B") B
+    a(class="letras" href="/author/letter/C") C
+    a(class="letras" href="/author/letter/D") D
+    a(class="letras" href="/author/letter/E") E
+    a(class="letras" href="/author/letter/F") F
+    a(class="letras" href="/author/letter/G") G
+    a(class="letras" href="/author/letter/H") H
+    a(class="letras" href="/author/letter/I") I
+    a(class="letras" href="/author/letter/J") J
+    a(class="letras" href="/author/letter/K") K
+    a(class="letras" href="/author/letter/L") L
+    a(class="letras" href="/author/letter/M") M
+    a(class="letras" href="/author/letter/N") N
+    a(class="letras" href="/author/letter/O") O
+    a(class="letras" href="/author/letter/P") P
+    a(class="letras" href="/author/letter/Q") Q
+    a(class="letras" href="/author/letter/R") R
+    a(class="letras" href="/author/letter/S") S
+    a(class="letras" href="/author/letter/T") T
+    a(class="letras" href="/author/letter/U") U
+    a(class="letras" href="/author/letter/V") V
+    a(class="letras" href="/author/letter/W") W
+    a(class="letras" href="/author/letter/X") X
+    a(class="letras" href="/author/letter/Y") Y
+    a(class="letras" href="/author/letter/Z") Z
 
-    h1 Lista de autores
+  h1 Lista de autores
 
-    if error 
-        p(class="error")= error
-    if data
+  if error
+    p(class="error")= error
+  if data
+    #listado
+      each author in data
+        .author-container
+          .author-info
+            a(href=`/author/${author.author_id}`)= `${author.author_id} - ${author.name} (${author.born})`
+          .author-actions
+            a(href=`/author/${author.author_id}/update`)
+              button Editar
+            form(action=`/author/${author.author_id}/remove`, method="post")
+              button(type="submit") Borrar
 
-        ul
-            each author in data 
-                    div(id="listado")
-                        a(href="/author/"+author.author_id)= `${author.author_id} - ${author.name} (${author.born})`
-                        a(href=`/author/${author.author_id}/update`, method="post") 
-                            button Editar
-
-                        form(action=`/author/${author.author_id}/remove`, method="post") 
-                            button(type="submit") Borrar
-
-
-    a(href="/author/new")
-        button Crear nuevo autor 
+  a(href="/author/new")
+    button Crear nuevo autor
