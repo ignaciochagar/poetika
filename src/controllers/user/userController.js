@@ -1,7 +1,15 @@
 import userModel from "../../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+/**
+ * @module /controllers/user/userController
+ */
 
+/**
+ * Asynchronously retrieves all users.
+ *
+ * @return {Object} An object containing the data array of users
+ */
 async function getAll() {
     try {
         const users = await userModel.findAll();
@@ -13,6 +21,12 @@ async function getAll() {
     }
 }
 
+/**
+ * Asynchronously retrieves a user by ID.
+ *
+ * @param {number} id - The ID of the user to retrieve
+ * @return {Object} An object containing the retrieved user data or an error object
+ */
 async function getById(id) {
     try {
         const user = await userModel.findByPk(id);
@@ -28,6 +42,12 @@ async function getById(id) {
 
 }
 
+/**
+ * Asynchronously retrieves a user by email.
+ *
+ * @param {string} email - The email of the user to retrieve
+ * @return {Object} An object containing the retrieved user data or an error object
+ */
 async function getByEmail(email){
     try {
         const user = await userModel.findOne({where:{email:email}})
@@ -38,6 +58,12 @@ async function getByEmail(email){
     }
 }
 
+/**
+ * Asynchronously creates a new user based on the provided userData.
+ *
+ * @param {Object} userData - The data of the user to be created
+ * @return {Object} An object containing the data of the newly created user or an error object
+ */
 async function create(userData) {
     try {
         const newuser = await userModel.create(userData);
@@ -48,7 +74,14 @@ async function create(userData) {
         return {error}
     }
 }
-
+/**
+ * Asynchronously registers a user with the provided email, password, and password repeat.
+ *
+ * @param {string} email - The email of the user to register
+ * @param {string} password - The password of the user to register
+ * @param {string} passwordRepeat - The repeated password for confirmation
+ * @return {Object} An object containing the newly registered user data or an error object
+ */
 async function register(email,password,passwordRepeat){
     try {
         if(!email || !password || !passwordRepeat){
@@ -75,6 +108,13 @@ async function register(email,password,passwordRepeat){
     }
 }
 
+/**
+ * Asynchronously logs in a user with the provided email and password.
+ *
+ * @param {string} email - The email of the user trying to log in
+ * @param {string} password - The password of the user trying to log in
+ * @return {Object} An object containing either the logged-in user data and token or an error object
+ */
 async function login(email,password){
     try {
         if(!email || !password ){       
@@ -97,7 +137,13 @@ async function login(email,password){
         return {error:"Ha habido un error en el login"}
     }
 }
-
+/**
+ * Asynchronously updates a user based on the provided ID and userData.
+ *
+ * @param {number} id - The ID of the user to update
+ * @param {Object} userData - The data containing the updated user information
+ * @return {Object} An object containing the updated user data or an error object
+ */
 async function update(id, userData) {
     try {
         const newuser = await userModel.update(userData,
@@ -116,6 +162,12 @@ async function update(id, userData) {
    
 }
 
+/**
+ * Asynchronously removes a user based on the provided ID.
+ *
+ * @param {number} id - The ID of the user to remove
+ * @return {Object} An object containing the removed user data
+ */
 async function remove(id) {
     try {
         const result = await userModel.remove(id);

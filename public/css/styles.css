@@ -4,17 +4,71 @@ body {
     background-color: #fffadb;
     font-family: 'Poppins', sans-serif;
 }
-
 #listado {
     display: flex;
-    align-items: center;
-    margin: 15px 0;
-
+    font-size: 1.1rem;
+    flex-direction: column;
+    align-items: flex-start;
 }
+
+#listado .author-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+#listado .author-container .author-info {
+    flex-grow: 1;
+    margin-right: 5px; }
+
+#listado .author-container .author-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 5px; 
+}
+
+#listado .author-container .author-actions button {
+    margin-bottom: 0;
+}
+
+#listado .author-container .author-actions button + button {
+    margin-left: 10px; 
+}
+
+#listado .poem-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+#listado .poem-container .poem-info {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+#listado .poem-container .poem-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 5px; }
+
+#listado .poem-container .poem-actions button {
+    margin-bottom: 0;
+}
+
+#listado .poem-container .poem-actions button + button {
+    margin-left: 10px;
+}
+
+
 
 #listado > a {
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     color: black;
   
 }
@@ -22,8 +76,8 @@ body {
 #listado > a:hover {
     color: brown;
     letter-spacing: 1px;
-    font-style: italic;
-}
+    font-style: italic; }
+
 
 button {
     margin: 0 10px;
