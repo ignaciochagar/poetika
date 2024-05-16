@@ -1,23 +1,26 @@
-html 
-    head 
-        link(rel="stylesheet" href="/css/styles.css")
-        link(rel="stylesheet" href="/css/update.css")
-
-    body 
-        div(id="header")
-            div(id="logo")
-                img(id="img", src="/img/poetikablack.png")
-            div(class="navbar")
-                div(class="nav-link")
-                    a(href="/author") Autores 
-                div(class="nav-link") 
-                    a(href="/poem") Poemas
-                li(class="nav-link") 
-                   a(href="/login") 
-                    button(type="submit") Login
-                li(class="nav-link") 
-                   a(href="/register")
-                    button(type="submit") Registro
-                li(class="nav-link") 
-                form(action="/logout", method="post") 
-                   button(type="submit") Logout
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Navbar
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel="stylesheet", href="/css/update.css")
+  body
+    div#header
+      div#logo
+        img#img(src="/img/poetikablack.png")
+      div.navbar
+        div.nav-link
+          a(href="/author", class=(currentPage === 'author' ? 'active' : '')) Autores 
+        div.nav-link
+          a(href="/poem", class=(currentPage === 'poem' ? 'active' : '')) Poemas
+        li.nav-link
+          a(href="/login")
+            button(type="submit") Login
+        li.nav-link
+          a(href="/register")
+            button(type="submit") Registro
+        li.nav-link
+          form(action="/logout", method="post")
+            button(type="submit") Logout

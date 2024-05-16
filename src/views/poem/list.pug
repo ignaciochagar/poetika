@@ -1,48 +1,49 @@
 extends ../layout
 
 block content
-    div(id="alfabetico")
-        a(class="letras" href="/poem/letter/A") A
-        a(class="letras" href="/poem/letter/B") B
-        a(class="letras" href="/poem/letter/C") C
-        a(class="letras" href="/poem/letter/D") D
-        a(class="letras" href="/poem/letter/E") E
-        a(class="letras" href="/poem/letter/F") F
-        a(class="letras" href="/poem/letter/G") G
-        a(class="letras" href="/poem/letter/H") H
-        a(class="letras" href="/poem/letter/I") I
-        a(class="letras" href="/poem/letter/J") J
-        a(class="letras" href="/poem/letter/K") K
-        a(class="letras" href="/poem/letter/L") L
-        a(class="letras" href="/poem/letter/M") M
-        a(class="letras" href="/poem/letter/N") N
-        a(class="letras" href="/poem/letter/O") O
-        a(class="letras" href="/poem/letter/P") P
-        a(class="letras" href="/poem/letter/Q") Q
-        a(class="letras" href="/poem/letter/R") R
-        a(class="letras" href="/poem/letter/S") S
-        a(class="letras" href="/poem/letter/T") T
-        a(class="letras" href="/poem/letter/U") U
-        a(class="letras" href="/poem/letter/V") V
-        a(class="letras" href="/poem/letter/W") W
-        a(class="letras" href="/poem/letter/X") X
-        a(class="letras" href="/poem/letter/Y") Y
-        a(class="letras" href="/poem/letter/Z") Z
+  div(id="alfabetico")
+    a(class="letras" href="/poem/letter/A") A
+    a(class="letras" href="/poem/letter/B") B
+    a(class="letras" href="/poem/letter/C") C
+    a(class="letras" href="/poem/letter/D") D
+    a(class="letras" href="/poem/letter/E") E
+    a(class="letras" href="/poem/letter/F") F
+    a(class="letras" href="/poem/letter/G") G
+    a(class="letras" href="/poem/letter/H") H
+    a(class="letras" href="/poem/letter/I") I
+    a(class="letras" href="/poem/letter/J") J
+    a(class="letras" href="/poem/letter/K") K
+    a(class="letras" href="/poem/letter/L") L
+    a(class="letras" href="/poem/letter/M") M
+    a(class="letras" href="/poem/letter/N") N
+    a(class="letras" href="/poem/letter/O") O
+    a(class="letras" href="/poem/letter/P") P
+    a(class="letras" href="/poem/letter/Q") Q
+    a(class="letras" href="/poem/letter/R") R
+    a(class="letras" href="/poem/letter/S") S
+    a(class="letras" href="/poem/letter/T") T
+    a(class="letras" href="/poem/letter/U") U
+    a(class="letras" href="/poem/letter/V") V
+    a(class="letras" href="/poem/letter/W") W
+    a(class="letras" href="/poem/letter/X") X
+    a(class="letras" href="/poem/letter/Y") Y
+    a(class="letras" href="/poem/letter/Z") Z
 
-    h1 Lista de poemas
-    if error 
-        p(class="error")= error
-    if data
-        ul
-            each poem in data 
-                    div(id="listado")
-                        a(href="/poem/"+poem.poem_id)= `${poem.poem_id} - ${poem.title} (${poem.author})`
-                        a(href=`/poem/${poem.poem_id}/update`, method="post") 
-                            button Editar
+  h1 Lista de poemas
 
-                        form(action=`/poem/${poem.poem_id}/remove`, method="post") 
-                            button(type="submit") Borrar
+  if error
+    p(class="error")= error
+  if data
+    #listado
+      each poem in data
+        .poem-container
+          .poem-info
+            a(href=`/poem/${poem.poem_id}`)= `${poem.poem_id} - ${poem.title} (${poem.author})`
+          .poem-actions
+            a(href=`/poem/${poem.poem_id}/update`)
+              button Editar
+            form(action=`/poem/${poem.poem_id}/remove`, method="post")
+              button(type="submit") Borrar
 
-
-    a(href="/poem/new")
-        button Crear nuevo poema
+  a(href="/poem/new")
+    button Crear nuevo poema
