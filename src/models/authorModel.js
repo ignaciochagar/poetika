@@ -3,6 +3,10 @@ import sequelize from "../config/sequelize.js";
 
 import poemModel from "./poemModel.js";
 
+/**
+ * @module /models/authorModel
+ */
+
 const authorModel = sequelize.define("author",
     {
         author_id:{
@@ -22,17 +26,5 @@ const authorModel = sequelize.define("author",
     }
 )
 
-/* authorModel.hasMany(poemModel,
-    {
-        foreignKey:"author_id"
-    }
-); */
-
-/* poemModel.belongsTo(authorModel,
-    {
-        as:"author",
-        foreignKey:"author_id"
-    }
-); */
 
 export default authorModel;
