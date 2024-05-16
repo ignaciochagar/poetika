@@ -30,9 +30,8 @@ Contribuciones
 
 Autor
 
-POETIKA es desarrollado y mantenido por Full stack funky force.
+POETIKA es desarrollado y mantenido por full stack funky force.
+
 Licencia
-
-
 
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros.
