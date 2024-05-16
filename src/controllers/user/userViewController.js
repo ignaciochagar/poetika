@@ -48,7 +48,7 @@ async function loginForm(req,res){
  * @param {Object} res - The response object used to send JSON response based on login success
  * @return {void}
  */
-async function login(req,res) {
+async function loginIndex(req,res) {
     const {email,password} = req.body;
     const {error,data} = await userController.login(email,password);
     if(!error){
