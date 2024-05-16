@@ -7,7 +7,7 @@ block content
         form(action="/poem/"+poem.poem_id, method="post") 
 
             label(for="title") Titulo 
-            input(id="title" type="text" name="titulo" value=poem.title) 
+            input(id="title" type="text" name="title" value=poem.title) 
 
             <br><br>
 
@@ -21,8 +21,8 @@ block content
 
             <br><br>
 
-            label(for="author_id") ID del autor: 
-            input#author_id(type="text", name="author_id" value=poem.author_id)  
+            label(for="author_id") 
+            input#author_id(type="text", name="author_id" value=poem.author_id hidden)  
 
             <br><br>
             
