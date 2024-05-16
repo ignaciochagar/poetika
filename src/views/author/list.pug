@@ -43,7 +43,7 @@ block content
             a(href=`/author/${author.author_id}/update`)
               button Editar
             form(action=`/author/${author.author_id}/remove`, method="post")
-              button(type="submit") Borrar
+              button(type="submit" class="confirm") Borrar
 
   a(href="/author/new")
     button Crear nuevo autor

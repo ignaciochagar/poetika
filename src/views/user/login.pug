@@ -20,7 +20,12 @@ html
     <br><br><br>
 
     if error
-        p= error
+        //p=  error
+        <div class="error-container">
+        <h1 class="error-title">¡Error!</h1>
+         <p class="error-message"> el email o el usurio no coinciden </p>
+        </div>
+
 
 
     form(action="/login", method="post") 
