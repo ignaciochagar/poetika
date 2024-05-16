@@ -1,9 +1,27 @@
- h1 Login
-    if error 
-        p(class="error")=error
-    form(action="/login", method="post") 
-        label(for="email") email
-        input#email(type="email", name="email") 
-        label(for="password") contraseña
-        input#password(type="password", name="password") 
-        button(type="submit") Login
+html 
+    head 
+        link(rel="stylesheet" href="/css/styles.css")
+        link(rel="stylesheet" href="/css/update.css")
+
+    body 
+
+        h1 Login
+
+        a(href="/register")
+            button(type="submit") Registro
+
+        <br><br><br>
+
+        if error
+            p= error
+
+
+        form(action="/login", method="post") 
+            label(for="email") email
+            input#email(type="email", name="email") 
+            label(for="password") contraseña
+            input#password(type="password", name="password") 
+
+            <br><br>
+
+            button(type="submit") Login
