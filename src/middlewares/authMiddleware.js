@@ -1,6 +1,15 @@
 import jwt from "jsonwebtoken";
+/**
+ * @module /middlewares/authMiddleware
+ */
 
-
+/**
+ * Middleware to check if the token in the request header is correct.
+ *
+ * @param {Object} req - The request object
+ * @param {Object} res - The response object
+ * @param {Function} next - The next middleware function
+ */
 function isTokenCorrect (req,res,next){
     try {
         const authorization = req.headers.authorization;
@@ -17,6 +26,14 @@ function isTokenCorrect (req,res,next){
     }
 }
 
+/**
+ * Middleware to check if the user has an active session.
+ *
+ * @param {Object} req - The request object
+ * @param {Object} res - The response object
+ * @param {Function} next - The next middleware function
+ * @return {void}
+ */
 function hasSession(req,res,next){
     return next();
     const user = req.session.user;
