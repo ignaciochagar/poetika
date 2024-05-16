@@ -11,19 +11,24 @@ html
       img#img(src="/img/poetikablack.png")
     #bienvenida
       p| ¡Bienvenido a POETIKA! Sumérgete en el rico mundo de la poesía vasca mientras exploras nuestra base de datos. Registrate  y conecta con la profundidad de la tradición poética vasca!
-
+   
     div#login-container
-        h1 Login
-        if error
-        p= error
-        form(action="/login", method="post")
+      h1 Login
+      if error
+        <div class="error-container">
+        <h1 class="error-title">¡Error!</h1>
+         <p class="error-message"> el email o el usurio no coinciden </p>
+        </div>
+
+      form(action="/login", method="post")
         label(for="email") email
         input#email(type="email", name="email")
         label(for="password") contraseña
         input#password(type="password", name="password")
-        <br> <br> 
         button(type="submit") Login
 
     div#register-button-container
       a(href="/register")
-       button(type="submit") Registro
+        button(type="submit") Registro
+
+        
