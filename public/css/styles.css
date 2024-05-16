@@ -205,3 +205,32 @@ button[type="submit"]:hover {
     
 
 }
+
+.error-container {
+    background-color: #ff4c4c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px;
+    text-align: center;
+    color: #ffffff;
+    max-width: 350px;
+    animation: shake 0.3s ease-in-out;
+  }
+  
+  .error-title {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  
+  .error-message {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }

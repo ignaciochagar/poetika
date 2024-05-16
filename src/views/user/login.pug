@@ -3,10 +3,15 @@ extends ../layout
 block content 
     h1 Login
     if error 
-        p(class="error")=error
+        //p(class="error")= error
+        <div class="error-container">
+        <h1 class="error-title">¡Error!</h1>
+         <p class="error-message"> el email o el usurio no coinciden </p>
+        </div>
+
     form(action="/login", method="post") 
         label(for="email") email
         input#email(type="email", name="email") 
         label(for="password") contraseña
         input#password(type="password", name="password") 
-        button(type="submit") Login
+        button(type="submit" class="confirm") Login
