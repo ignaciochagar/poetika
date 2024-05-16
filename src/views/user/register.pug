@@ -3,7 +3,7 @@ extends ../layout
 block content 
     h1 Register
     if error 
-        p(class="error")=error
+        p(class="error")= error
     form(action="/register", method="post") 
         label(for="email") email
         input#email(type="email", name="email") 
@@ -11,4 +11,4 @@ block content
         input#password(type="password", name="password") 
         label(for="passwordRepeat") repetir contraseña
         input#passwordRepeat(type="password", name="passwordRepeat") 
-        button(type="submit") Register
+        button(type="submit" class="confirm") Register
