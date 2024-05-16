@@ -26,9 +26,13 @@ async function loginIndex(req,res) {
     if(!error){
         req.session.user = data;
         res.redirect("/author");
-    }
-    else{
-        res.render("index",{error});
+    } else {
+        let email = req.body['email'];
+        if (email !== undefined) {
+            res.render("index",{error});
+        } else {
+            res.render("index",{});
+        }
     }
 }
 

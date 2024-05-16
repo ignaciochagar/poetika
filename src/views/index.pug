@@ -7,21 +7,21 @@ html
 
         h1 Login
 
-        <br>
+        a(href="/register")
+            button(type="submit") Registro
+
+        <br><br><br>
 
         if error
             p= error
 
-        <br>
 
         form(action="/login", method="post") 
             label(for="email") email
             input#email(type="email", name="email") 
             label(for="password") contraseña
             input#password(type="password", name="password") 
+
+            <br><br>
+
             button(type="submit") Login
-
-            <br><br><br><br>
-
-        a(href="/register")
-            button(type="submit") Registro
