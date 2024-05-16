@@ -26,6 +26,7 @@ function hasSession(req,res,next){
     }
     next();
 }
+
 export{isTokenCorrect,hasSession};
 
 export default {isTokenCorrect,hasSession};

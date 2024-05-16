@@ -1,0 +1,22 @@
+html 
+    head 
+        link(rel="stylesheet" href="/css/styles.css")
+        link(rel="stylesheet" href="/css/update.css")
+
+    body 
+
+        h1 Login
+
+        <br>
+
+        form(action="/login", method="post") 
+            label(for="email") email
+            input#email(type="email", name="email") 
+            label(for="password") contraseña
+            input#password(type="password", name="password") 
+            button(type="submit") Login
+
+            <br><br><br><br>
+
+        a(href="/register")
+            button(type="submit") Registro

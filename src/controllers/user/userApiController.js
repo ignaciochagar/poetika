@@ -26,6 +26,8 @@ async function getAll(req,res){
     const {data:users} = await userController.getAll();
     res.json(users);
 }
+
+
 export {
     register,
     login,

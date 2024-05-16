@@ -6,5 +6,6 @@ const router = Router();
 
 router.post("/register",userApiController.register);
 router.post("/login",userApiController.login);
-router.get("/users",isTokenCorrect,userApiController.getAll);
+router.get("/",isTokenCorrect,userApiController.getAll);
+
 export default router;

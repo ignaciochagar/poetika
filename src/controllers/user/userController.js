@@ -48,6 +48,7 @@ async function create(userData) {
         return {error}
     }
 }
+
 async function register(email,password,passwordRepeat){
     try {
         if(!email || !password || !passwordRepeat){
@@ -96,6 +97,7 @@ async function login(email,password){
         return {error:"Ha habido un error en el login"}
     }
 }
+
 async function update(id, userData) {
     try {
         const newuser = await userModel.update(userData,
