@@ -1,27 +1,29 @@
-html 
-    head 
-        link(rel="stylesheet" href="/css/styles.css")
-        link(rel="stylesheet" href="/css/update.css")
+html
+  head
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel="stylesheet", href="/css/update.css")
+    block title
+      title Poetika
 
-    body 
+  body
 
+    #logo
+      img#img(src="/img/poetikablack.png")
+    #bienvenida
+      p| ¡Bienvenido a POETIKA! Sumérgete en el rico mundo de la poesía vasca mientras exploras nuestra base de datos. Registrate  y conecta con la profundidad de la tradición poética vasca!
+
+    div#login-container
         h1 Login
-
-        a(href="/register")
-            button(type="submit") Registro
-
-        <br><br><br>
-
         if error
-            p= error
+        p= error
+        form(action="/login", method="post")
+        label(for="email") email
+        input#email(type="email", name="email")
+        label(for="password") contraseña
+        input#password(type="password", name="password")
+        <br> <br> 
+        button(type="submit") Login
 
-
-        form(action="/login", method="post") 
-            label(for="email") email
-            input#email(type="email", name="email") 
-            label(for="password") contraseña
-            input#password(type="password", name="password") 
-
-            <br><br>
-
-            button(type="submit") Login
+    div#register-button-container
+      a(href="/register")
+       button(type="submit") Registro
