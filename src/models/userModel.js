@@ -8,16 +8,28 @@ const userModel = sequelize.define("user",
         allowNull:false,
         primaryKey:true,
         autoIncrement:true
-    },
+    }/* ,
+    name: {
+        type: DataTypes.STRING(45),
+        allowNull:true
+    } */,
     email: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(45),
         allowNull:false,
         unique:true
     },
     password: {
-        type:DataTypes.STRING(80),
+        type:DataTypes.STRING(70),
         allowNull:false
-    }
+    }/* , 
+    author_id:{
+        type:DataTypes.INTEGER,
+        allowNull:true
+    }, 
+    role_id: {
+        type:DataTypes.INTEGER,
+        allowNull:true
+    } */
 });
 
 export default userModel;

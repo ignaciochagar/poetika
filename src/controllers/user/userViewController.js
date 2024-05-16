@@ -28,7 +28,7 @@ async function register(req,res) {
         res.render("user/register",{error});
     }
     else{
-        res.redirect("/login");
+        res.redirect("/");
     }
 }
 /**
@@ -39,7 +39,7 @@ async function register(req,res) {
  * @return {void} Renders the user login form view
  */
 async function loginForm(req,res){
-    res.render("user/login");
+    res.render("index");
 }
 /**
  * Asynchronously logs in a user with the provided email and password.
@@ -48,15 +48,19 @@ async function loginForm(req,res){
  * @param {Object} res - The response object used to send JSON response based on login success
  * @return {void}
  */
-async function login(req,res) {
+async function loginIndex(req,res) {
     const {email,password} = req.body;
     const {error,data} = await userController.login(email,password);
-    if(error){
-        res.render("user/login",{error});
-    }
-    else{
+    if(!error){
         req.session.user = data;
         res.redirect("/author");
+    } else {
+        let email = req.body['email'];
+        if (email !== undefined) {
+            res.render("index",{error});
+        } else {
+            res.render("index",{});
+        }
     }
 }
 
@@ -69,7 +73,7 @@ async function login(req,res) {
  */
 async function logout(req,res){
     req.session.user = null;
-    res.redirect("/author");
+    res.redirect("/");
 }
 
 /**
@@ -83,20 +87,23 @@ async function getAll(req,res){
     const {data:users} = await userController.getAll();
     res.json(users);
 }
+
+
+
 export {
     register,
     registerForm,
-    login,
     loginForm,
     logout,
-    getAll
+    getAll,
+    loginIndex
 }
 
 export default {
     register,
     registerForm,
-    login,
     loginForm,
     logout,
-    getAll
+    getAll,
+    loginIndex
 }
