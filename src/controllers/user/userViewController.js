@@ -19,27 +19,15 @@ async function loginForm(req,res){
     res.render("index");
 }
 
-/* async function login(req,res) {
-    const {email,password} = req.body;
-    const {error,data} = await userController.login(email,password);
-    if(error){
-        res.render("user/login",{error});
-    }
-    else{
-        req.session.user = data;
-        res.redirect("/author");
-    }
-} */
-
 async function loginIndex(req,res) {
     const {email,password} = req.body;
     const {error,data} = await userController.login(email,password);
-    if(error){
-        res.render("index",{error});
-    }
-    else{
+    if(!error){
         req.session.user = data;
         res.redirect("/author");
+    }
+    else{
+        res.render("index",{error});
     }
 }
 
@@ -58,7 +46,6 @@ async function getAll(req,res){
 export {
     register,
     registerForm,
-    //login,
     loginForm,
     logout,
     getAll,
@@ -68,7 +55,6 @@ export {
 export default {
     register,
     registerForm,
-    //login,
     loginForm,
     logout,
     getAll,

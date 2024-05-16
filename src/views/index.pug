@@ -9,6 +9,11 @@ html
 
         <br>
 
+        if error
+            p= error
+
+        <br>
+
         form(action="/login", method="post") 
             label(for="email") email
             input#email(type="email", name="email") 
