@@ -19,6 +19,7 @@ async function loginForm(req,res){
     res.render("index");
 }
 
+
 async function loginIndex(req,res) {
     const {email,password} = req.body;
     const {error,data} = await userController.login(email,password);
